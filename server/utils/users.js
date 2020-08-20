@@ -1,14 +1,16 @@
 const connectedUsers = [];
 
 const addUser = ({id, username, room}) => {
-    username = username.trim().toLowerCase();
-    room = room.trim().toLowerCase();
     if(!username || !room) {
         return {
             error: "Username and room are required"
         }
     }
-    const existingUser = connectedUsers.find(user => user.room === room);
+
+    username = username.trim().toLowerCase();
+    room = room.trim().toLowerCase();
+
+    const existingUser = connectedUsers.find(user => user.room === room && user.username === username);
     if(existingUser) {
         return {
             error: 'This username is already taken'

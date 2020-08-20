@@ -3,15 +3,19 @@ import React, {useState, useEffect} from 'react';
 import io from 'socket.io-client';
 import queryString from 'query-string';
 
-const ChatPage = ({location}) => {
+import {Chat, ChatHeader} from './chat.styles';
+import ChatMenu from '../../components/chat-menu/chat-menu.component';
+import SendMessage from '../../components/send-message/send-message.component';
+import MessagesField from '../../components/messages-field/messages-field.component';
 
+let socket;
+
+const ChatPage = ({location, history}) => {
     const [displayName, setDisplayName] = useState('');
-    const [romm, setRoom] = useState('');
+    const [room, setRoom] = useState('');
     const [users, setUsers] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState('');
-
-    let socket;
 
     useEffect(() => {
         const {username, room} = queryString.parse(location.search);
@@ -22,7 +26,7 @@ const ChatPage = ({location}) => {
         socket.emit('join', {username, room}, error => {
             if(error) {
                 alert(error);
-                location = "/";
+                history.push('/');
             }
         })
     }, [location, location.search]);
@@ -54,7 +58,12 @@ const ChatPage = ({location}) => {
     }
 
     return (
-        <div></div>
+        <Chat>
+            <ChatHeader>chatroom <span>{room}</span></ChatHeader>
+            <ChatMenu />
+            <MessagesField messages={messages} displayName={displayName}/>
+            <SendMessage message={message} sendMessage={sendMessage} setMessage={setMessage}/>
+        </Chat>
     );
 };
 

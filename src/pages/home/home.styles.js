@@ -9,6 +9,20 @@ export const Home = styled.div`
     background-color: #F3F3F3;
 `;
 
+export const BackgroundCaption = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    font-size: 4rem;
+    color: #B4B4B4;
+    position: absolute;
+    ${props => props.align === "left" ? 'left: 0; padding-right: 150px;' : 'right: 0; padding-left: 150px;'};
+    user-select: none;
+`;
+
 export const Panel = styled.div`
     display: flex;
     flex-direction: column;
@@ -20,6 +34,8 @@ export const Panel = styled.div`
     border-radius: 15px;
     padding: 35px 0;
     margin-bottom: 35px;
+    position: relative;
+    z-index: 1;
 `;
 
 export const Header = styled.div`

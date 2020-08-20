@@ -1,9 +1,11 @@
 import React from 'react';
 
-import {Home, Panel, Header, Join, JoinInput, EnterBtn} from './home.styles';
+import {Home, BackgroundCaption, Panel, Header, Join, JoinInput, EnterBtn} from './home.styles';
 
 const HomePage = () => (
     <Home>
+        <BackgroundCaption align="left">socket.io</BackgroundCaption>
+        <BackgroundCaption align="right">chat app</BackgroundCaption>
         <Panel>
             <Header>Join</Header>
             <Join action="/chat">

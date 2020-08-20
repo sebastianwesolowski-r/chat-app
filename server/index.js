@@ -11,6 +11,7 @@ const {generateMessage, generateLocationMessage} = require('./utils/messages');
 
 io.on('connection', socket => {
     console.log('new socket has connected');
+
     socket.on('join', ({username, room}, cb) => {
         const {error, user} = addUser({id: socket.id, username, room});
 
