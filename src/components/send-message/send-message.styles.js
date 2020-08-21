@@ -30,14 +30,16 @@ export const SendBtn = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border: none;
     background-color: #C4C4C4;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     transition-duration: 150ms;
     margin-top: 10px;
+    padding-left: 3px;
+    padding-top: 2px;
     &:hover {
         opacity: 0.8;
     }

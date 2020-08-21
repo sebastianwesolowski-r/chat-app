@@ -9,7 +9,6 @@ export const MenuPanel = styled.div`
     height: 100%;
     padding: 40px 0;
     background-color: #14181B;
-    border-radius: 0 15px 15px 0;
     position: absolute;
     left: 0;
     top: 0;
@@ -24,6 +23,6 @@ export const MenuSettings = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 300px;
+    height: 250px;
     margin-top: 70px;
 `;

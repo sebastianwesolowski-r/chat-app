@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
+import {Howl, Howler} from 'howler';
 
 import io from 'socket.io-client';
 import queryString from 'query-string';
+
+import soundAlert from '../../assets/alert.mp3';
 
 import {Chat, ChatHeader} from './chat.styles';
 import ChatMenu from '../../components/chat-menu/chat-menu.component';
 import SendMessage from '../../components/send-message/send-message.component';
 import MessagesField from '../../components/messages-field/messages-field.component';
+import UsersList from '../../components/users-list/users-list.component';
 
 let socket;
 
@@ -16,6 +20,20 @@ const ChatPage = ({location, history}) => {
     const [users, setUsers] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState('');
+    const [usersList, setUsersList] = useState(false);
+    const [isSound, setSound] = useState(true);
+
+    const showUsersList = () => setUsersList(!usersList);
+    const switchSound = () => {
+        if(isSound) {
+            Howler.volume(0);
+        } else {
+            Howler.volume(1);
+        }
+        setSound(!isSound);
+    };
+
+    const alertHowl = new Howl({src: [soundAlert]});
 
     useEffect(() => {
         const {username, room} = queryString.parse(location.search);
@@ -34,6 +52,7 @@ const ChatPage = ({location, history}) => {
     useEffect(() => {
         socket.on('message', message => {
             setMessages(messages => [...messages, message]);
+            alertHowl.play();
         });
 
         socket.on('roomData', ({users}) => {
@@ -60,8 +79,13 @@ const ChatPage = ({location, history}) => {
     return (
         <Chat>
             <ChatHeader>chatroom <span>{room}</span></ChatHeader>
-            <ChatMenu />
+            <ChatMenu showUsersList={showUsersList} isSound={isSound} switchSound={switchSound}/>
             <MessagesField messages={messages} displayName={displayName}/>
+            {
+                usersList ? (
+                    <UsersList users={users}/>
+                ) : null
+            }
             <SendMessage message={message} sendMessage={sendMessage} setMessage={setMessage}/>
         </Chat>
     );

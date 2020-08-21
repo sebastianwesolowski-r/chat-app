@@ -19,4 +19,8 @@ const MessagesField = ({messages, displayName}) => {
     );
 };
 
+MessagesContainer.defaultProps = {
+    messages: []
+}
+
 export default MessagesField;
