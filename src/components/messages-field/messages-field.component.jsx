@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {MessagesContainer} from './messages-field.styles';
+import {MessagesContainer, Messages} from './messages-field.styles';
 
 import Message from '../message/message.component';
 
@@ -10,11 +10,13 @@ const MessagesField = ({messages, displayName}) => {
 
     return (
         <MessagesContainer>
+            <Messages>
             {
                 messages ? (
                     messages.map(message => <Message key={getKey()} message={message} displayName={displayName}/>)
                 ) : null
             }
+            </Messages>
         </MessagesContainer>
     );
 };

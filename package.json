@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "express": "^4.17.1",
     "howler": "^2.2.0",
+    "moment": "^2.27.0",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

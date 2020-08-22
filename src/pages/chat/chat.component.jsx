@@ -28,7 +28,7 @@ const ChatPage = ({location, history}) => {
         if(isSound) {
             Howler.volume(0);
         } else {
-            Howler.volume(1);
+            Howler.volume(0.7);
         }
         setSound(!isSound);
     };

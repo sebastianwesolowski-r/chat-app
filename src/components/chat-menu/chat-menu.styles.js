@@ -8,7 +8,6 @@ export const MenuPanel = styled.div`
     width: 120px;
     height: 100%;
     padding: 40px 0;
-    background-color: #14181B;
     position: absolute;
     left: 0;
     top: 0;
