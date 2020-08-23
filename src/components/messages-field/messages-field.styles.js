@@ -9,6 +9,10 @@ export const MessagesContainer = styled.div`
     position: absolute;
     left: 170px;
     bottom: 120px;
+    @media (max-width: 900px) {
+        position: static;
+        width: 90%;
+    }
 `;
 
 export const Messages = styled.div`
@@ -26,5 +30,5 @@ export const Messages = styled.div`
 
     &::-webkit-scrollbar-thumb {
         background: #ECEDF1;
-      }
+    }
 `;

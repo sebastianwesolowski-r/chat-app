@@ -18,7 +18,6 @@ const ChatMenu = ({showUsersList, isSound, switchSound}) => {
 
     const shareLink = () => {
         navigator.clipboard.writeText(window.location.href);
-        console.log(window.location.href);
         setAlertMessage('chatroom link copied to clipboard');
         setAlertHidden();
     }

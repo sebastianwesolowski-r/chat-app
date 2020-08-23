@@ -17,7 +17,6 @@ export const AlertContainer = styled.div`
     width: 380px;
     height: 130px;
     font-size: 1.2rem;
-    color: #14181B;
     background-color: #ECEDF1;
     position: absolute;
     left: 0;
@@ -30,6 +29,25 @@ export const AlertContainer = styled.div`
     padding: 10px 0;
     z-index: 3;
     user-select: none;
+    p {
+        color: #14181B;
+        padding: 0;
+        margin: 0;
+    }
+    @media (max-width: 900px) {
+        width: 85%;
+        p {
+            margin-top: 38px;
+        }
+        svg {
+            position: absolute;
+            width: 30px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 `;
 
 export const AlertBtn = styled.button`

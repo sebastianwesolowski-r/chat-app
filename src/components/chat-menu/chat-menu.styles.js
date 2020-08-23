@@ -14,6 +14,9 @@ export const MenuPanel = styled.div`
     svg {
         cursor: pointer;
     }
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 export const MenuSettings = styled.div`

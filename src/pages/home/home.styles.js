@@ -7,6 +7,10 @@ export const Home = styled.div`
     width: 100%;
     height: 100vh;
     background-color: #F3F3F3;
+    @media (max-width: 900px) {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 `;
 
 export const BackgroundCaption = styled.div`
@@ -21,6 +25,15 @@ export const BackgroundCaption = styled.div`
     position: absolute;
     ${props => props.align === "left" ? 'left: 0; padding-right: 150px;' : 'right: 0; padding-left: 150px;'};
     user-select: none;
+    @media (max-width: 900px) {
+        ${props => props.align === "left" ? 'justify-content: flex-start; top: 50px;' : 'justify-content: flex-end; bottom: 50px;'};
+        width: 100%;
+        height: calc(50% - 50px);
+        font-size: 2.5rem;
+        left: unset;
+        right: unset;
+        padding: 0;
+    }
 `;
 
 export const Panel = styled.div`
@@ -36,6 +49,10 @@ export const Panel = styled.div`
     margin-bottom: 35px;
     position: relative;
     z-index: 1;
+    @media (max-width: 900px) {
+        margin: auto 0;
+        width: 90%;
+    }
 `;
 
 export const Header = styled.div`

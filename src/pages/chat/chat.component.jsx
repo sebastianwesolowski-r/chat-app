@@ -5,12 +5,14 @@ import io from 'socket.io-client';
 import queryString from 'query-string';
 
 import soundAlert from '../../assets/alert.mp3';
+import {ReactComponent as HamburgerMenu} from '../../assets/hamburger-menu.svg';
 
 import {Chat, ChatHeader} from './chat.styles';
 import ChatMenu from '../../components/chat-menu/chat-menu.component';
 import SendMessage from '../../components/send-message/send-message.component';
 import MessagesField from '../../components/messages-field/messages-field.component';
 import UsersList from '../../components/users-list/users-list.component';
+import MobileMenu from '../../components/mobile-menu/mobile-menu.component';
 
 let socket;
 
@@ -22,6 +24,7 @@ const ChatPage = ({location, history}) => {
     const [messages, setMessages] = useState('');
     const [usersList, setUsersList] = useState(false);
     const [isSound, setSound] = useState(true);
+    const [mobileMenu, setMobileMenu] = useState(false);
 
     const showUsersList = () => setUsersList(!usersList);
     const switchSound = () => {
@@ -78,7 +81,15 @@ const ChatPage = ({location, history}) => {
 
     return (
         <Chat>
-            <ChatHeader>chatroom <span>{room}</span></ChatHeader>
+            <ChatHeader mobileMenu={mobileMenu}>
+                chatroom <span>{room}</span>
+                <HamburgerMenu onClick={() => setMobileMenu(!mobileMenu)}/>
+                {
+                    mobileMenu ? (
+                        <MobileMenu showUsersList={showUsersList} isSound={isSound} switchSound={switchSound}/>
+                    ) : null
+                }
+            </ChatHeader>
             <ChatMenu showUsersList={showUsersList} isSound={isSound} switchSound={switchSound}/>
             <MessagesField messages={messages} displayName={displayName}/>
             {

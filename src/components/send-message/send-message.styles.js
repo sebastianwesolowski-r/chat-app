@@ -2,13 +2,17 @@ import styled from 'styled-components';
 
 export const SendForm = styled.form`
     display: flex;
-    align-items: ;
     justify-content: space-between;
     width: calc(70% + 70px);
     height: 70px;
     position: absolute;
     bottom: 10px;
     left: 170px;
+    @media (max-width: 900px) {
+        width: 90%;
+        position: static;
+        margin-top: 20px;
+    }
 `;
 
 export const SendInput = styled.input`
@@ -34,12 +38,13 @@ export const SendBtn = styled.button`
     height: 45px;
     border: none;
     background-color: #C4C4C4;
-    border-radius: 25px;
+    border-radius: 15px;
     cursor: pointer;
     transition-duration: 150ms;
     margin-top: 10px;
     padding-left: 9px;
     padding-top: 2px;
+    outline: none;
     &:hover {
         opacity: 0.8;
     }
