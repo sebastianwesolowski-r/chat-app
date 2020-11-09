@@ -2,28 +2,38 @@ import styled from 'styled-components';
 
 export const MobileMenuContainer = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
-    width: calc(100% - 80px);
-    height: 60px;
-    background-color: #ECEDF1;
+    width: 100%;
+    height: 230px;
+    background-color: ${props => props.theme.customBlack};
     position: absolute;
-    top: 0;
-    left: 80px;
-    padding: 0 20px;
-    svg {
-        position: static;
-    }
+    z-index: 3;
+    top: 70px;;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 20px 0;
     @media (min-width: 900px) {
         display: none;
     }
 `;
 
-export const MobileMenuSettings = styled.div`
+export const MobileMenuHeader = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+`;
+
+export const MobileMenuSettings = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    width: 160px;
-    margin-left: 10px;
-    margin-right: 90px;
+    width: 100%;
+    height: 155px;
 `;
 

@@ -7,11 +7,15 @@ export const MessagesContainer = styled.div`
     width: 70%;
     height: 75%;
     position: absolute;
-    left: 170px;
-    bottom: 120px;
+    z-index: 2;
+    left: 180px;
+    bottom: 110px;
     @media (max-width: 900px) {
-        position: static;
-        width: 90%;
+        width: 100%;
+        height: 70%;
+        left: 0;
+        bottom: 80px;
+        padding: 10px;
     }
 `;
 

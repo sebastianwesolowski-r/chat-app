@@ -9,8 +9,8 @@ const generateMessage = (username, text) => {
 const generateLocationMessage = (username, location) => {
     return {
         username,
-        url: location,
-        createdAt: `${new Date().getHours()} : ${new Date().getMinutes()}`
+        text: location,
+        createdAt: new Date().getTime()
     }
 };
 

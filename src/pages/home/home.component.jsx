@@ -1,19 +1,23 @@
 import React from 'react';
 
-import {Home, BackgroundCaption, Panel, Header, Join, JoinInput, EnterBtn} from './home.styles';
+import {Home, Panel, Header, Join, JoinInput, JoinInputLabel, EnterBtn, Footer} from './home.styles';
 
 const HomePage = () => (
     <Home>
-        <BackgroundCaption align="left">socket.io</BackgroundCaption>
-        <BackgroundCaption align="right">chat app</BackgroundCaption>
         <Panel>
-            <Header>Join</Header>
+            <Header>Join room</Header>
             <Join action="/chat">
-                <JoinInput type="text" name="username" placeholder="Username" maxLength="10" autoComplete="off" required/>
-                <JoinInput type="text" name="room" placeholder="Room" maxLength="10" autoComplete="off" required/>
+                <JoinInputLabel htmlFor="room">Room</JoinInputLabel>
+                <JoinInput type="text" id="room" name="room" placeholder="..." maxLength="10" autoComplete="off" required/>
+                <JoinInputLabel htmlFor="username">Username</JoinInputLabel>
+                <JoinInput type="text" id="username" name="username" placeholder="..." maxLength="10" autoComplete="off" required/>
                 <EnterBtn type="submit">Enter</EnterBtn>
             </Join>
         </Panel>
+        <Footer>
+            <a href="https://sebastianwesolowski.netlify.app/" rel="noopener noreferrer" target="_blank">© 2020 Chat App by SEBASTIANWESOLOWSKI.</a>
+            <a href="https://github.com/sebastianwesolowski-r/chat-app" rel="noopener noreferrer" target="_blank">GitHub</a>
+        </Footer>
     </Home>
 );
 

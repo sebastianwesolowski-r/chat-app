@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import {BrowserRouter} from 'react-router-dom';
+import {ThemeProvider} from 'styled-components';
+
+import {theme} from './theme/theme';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );

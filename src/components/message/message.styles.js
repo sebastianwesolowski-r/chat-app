@@ -25,7 +25,7 @@ export const MessageBox = styled.div`
     max-width: 35%;
     height: fit-content;
     font-size: 1rem;
-    ${props => props.displayName === props.messageAuthor ? 'background-color: #ECEDF1; color: #14181B; border-radius: 7px 7px 0 7px;' : 'background-color: #22252A; color: #C4C4C4; border-radius: 7px 7px 7px 0;'};
+    ${props => props.displayName === props.messageAuthor ? `background-color: ${props.theme.customBlack}; border-radius: 7px 7px 0 7px;` : `background-color: ${props.theme.customPurple}; border-radius: 7px 7px 7px 0;`};
     word-wrap: break-word;
     padding: 12px;
     animation: ${messageAnimation} 220ms ease-in;
@@ -33,6 +33,6 @@ export const MessageBox = styled.div`
 
 export const MessageData = styled.span`
     font-size: 0.7rem;
-    color: #C4C4C4;
+    color: #494D50;
     margin-top: 5px;
 `;

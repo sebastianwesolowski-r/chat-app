@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 import GlobalStyle from './global-style';
 
@@ -10,8 +10,10 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/chat" component={ChatPage} />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/chat" component={ChatPage} />
+      </Switch>
     </>
   )
 }
